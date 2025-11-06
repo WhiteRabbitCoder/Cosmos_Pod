@@ -1,0 +1,1 @@
+numero1 = input ("Ingrese su primer numero a sumar")
