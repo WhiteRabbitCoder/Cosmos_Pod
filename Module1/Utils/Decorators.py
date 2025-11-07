@@ -8,6 +8,8 @@ COLORS = {
         "reset": "\033[0m",
 }
 
-def color(text: str, name: str) -> str:
+def color(text: str, color: str) -> str:
     #Devuelve text envuelto con el color indicado (name: red/green/yellow/...).
-    return f"{COLORS.get(name, COLORS['reset'])}{text}{COLORS['reset']}"
+    return f"{COLORS.get(color, COLORS['reset'])}{text}{COLORS['reset']}"
+
+print(color("Hello World!", color="red"))

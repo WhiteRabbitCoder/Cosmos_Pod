@@ -41,7 +41,14 @@ def is_valid_name(value: Optional[str], min_len: int = 1, max_len: int = 100) ->
         return False
     return bool(_NAME_RE.match(s))
 
-def is_positive_int_str(value: str) -> bool:
+def is_valid_number(value: Optional[float]) -> bool:
+    """
+    Válida si el valor es un número (int o float).
+    """
+    return isinstance(value, (int, float))
+
+
+def is_positive_int(value: int) -> bool:
     """True si value representa un entero positivo (>0)."""
     try:
         n = int(value)
