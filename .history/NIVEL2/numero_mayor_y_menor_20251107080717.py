@@ -1,1 +1,0 @@
-#Se define las variables 

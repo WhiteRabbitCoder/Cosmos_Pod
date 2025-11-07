@@ -1,1 +1,0 @@
-numeroConteo=int(input)

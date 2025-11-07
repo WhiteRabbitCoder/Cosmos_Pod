@@ -1,1 +1,0 @@
-numero=float(input("In"))

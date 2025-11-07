@@ -1,1 +1,0 @@
-numero1=input("Ingrese el primer numero a sumar")

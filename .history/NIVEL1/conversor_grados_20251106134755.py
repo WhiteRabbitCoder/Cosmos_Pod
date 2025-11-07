@@ -1,1 +1,0 @@
-celsius=int(input("In")

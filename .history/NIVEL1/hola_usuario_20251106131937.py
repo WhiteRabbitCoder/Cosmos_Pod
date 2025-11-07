@@ -1,1 +1,0 @@
-nombre=("Ingrese su nombre")

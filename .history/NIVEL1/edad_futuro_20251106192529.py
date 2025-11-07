@@ -1,2 +1,0 @@
-
-edad=input()

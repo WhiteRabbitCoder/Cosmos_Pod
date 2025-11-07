@@ -1,1 +1,0 @@
-numero1 = int ("Ingrese su primer numero a sumar")
