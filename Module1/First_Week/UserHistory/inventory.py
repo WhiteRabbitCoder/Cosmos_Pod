@@ -1,12 +1,12 @@
 import os
 import platform
-from ...Utils import Validator
+import Validator as Validator
 
 products = {}
 os.environ.setdefault("TERM", "xterm-256color")
 
-open_text = "╔" + "═" * 56 + "╗\n║ "
-close_text = "\n╚" + "═" * 56 + "╝"
+open_text = "╔" + "═" * 80 + "╗\n║ "
+close_text = "\n╚" + "═" * 80 + "╝"
 
 class Product:
     def __init__(self, name, price=0.0, quantity=0):
@@ -24,7 +24,7 @@ def clear_console():
     os.system("cls" if platform.system() == "Windows" else "clear")
 
 def enter_product():
-    #clear_console()
+    clear_console()
     while True:
         try:
             name = input("\n\nEnter product name: ").capitalize().strip()
@@ -68,6 +68,7 @@ def enter_product():
             break
 
 def view_products():
+    clear_console
     if not products:
         print(open_text + "No products registered." + close_text)
     else:
