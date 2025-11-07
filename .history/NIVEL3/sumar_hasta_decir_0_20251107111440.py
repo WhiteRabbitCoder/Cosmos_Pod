@@ -7,4 +7,4 @@ while True:
         print(f"resultado Final:{numero}")
         break
     
-    numero += numeroIngresado
+    numero + numeroIngresado
