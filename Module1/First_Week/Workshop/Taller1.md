@@ -80,7 +80,7 @@ Objetivo: Aplicar todos los conceptos vistos en problemas más completos.
 
 ---
 
-## Entrega
+## Entrega 
 
 Cada célula debe subir:
 - Archivo `taller_basico.py`

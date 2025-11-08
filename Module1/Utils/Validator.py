@@ -14,7 +14,6 @@ Funciones de validación y parseo para usar en el proyecto:
 import re
 from typing import Iterable, Optional
 
-
 def is_non_empty_string(value: Optional[str]) -> bool:
     """True si value es un string no vacío después de strip()."""
     return isinstance(value, str) and bool(value.strip())

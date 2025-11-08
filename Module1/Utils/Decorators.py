@@ -11,5 +11,3 @@ COLORS = {
 def color(text: str, color: str) -> str:
     #Devuelve text envuelto con el color indicado (name: red/green/yellow/...).
     return f"{COLORS.get(color, COLORS['reset'])}{text}{COLORS['reset']}"
-
-print(color("Hello World!", color="red"))
