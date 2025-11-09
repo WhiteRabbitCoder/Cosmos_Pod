@@ -55,6 +55,18 @@ def is_positive_int(value: int) -> bool:
     except Exception:
         return False
 
+def is_positive_int_str(value: str) -> bool:
+    """True si value es un string que representa un entero positivo (>0)."""
+    if not isinstance(value, str):
+        return False
+    s = value.strip()
+    if not s.isdigit():
+        return False
+    try:
+        return int(s) > 0
+    except Exception:
+        return False
+
 
 def parse_positive_int(value: str) -> int:
     """
@@ -73,7 +85,7 @@ def parse_positive_int(value: str) -> int:
 _DECIMAL_RE = re.compile(r"^[+-]?\d+([.,]\d+)?$")
 
 
-def is_positive_decimal_str(value: str) -> bool:
+def is_positive_decimal(value: str) -> bool:
     """True si value es decimal u entero positivo (acepta ',' o '.')."""
     if not isinstance(value, str):
         return False

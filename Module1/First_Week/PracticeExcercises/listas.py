@@ -1,3 +1,5 @@
+from collections import Counter
+
 Marcas = ["Mazda", "Masserati"]
 
 for Marca in Marcas:
@@ -15,3 +17,7 @@ Marcas.remove("Mazda")
 
 for Marca in Marcas:
     print(Marca)
+
+CMarcas = Counter(Marcas)
+for x, y in CMarcas.items():
+    print(x, y)
