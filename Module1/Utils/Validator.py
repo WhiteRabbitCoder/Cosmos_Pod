@@ -97,6 +97,19 @@ def is_positive_decimal(value: str) -> bool:
     except Exception:
         return False
 
+def is_valid_decimal(value: str) -> bool:
+    """True si value es decimal o entero (acepta ',' o '.')."""
+    if not isinstance(value, str):
+        return False
+    s = value.strip().replace(" ", "")
+    if not _DECIMAL_RE.match(s):
+        return False
+    try:
+        float(s.replace(",", "."))
+        return True
+    except Exception:
+        return False
+
 
 def parse_positive_decimal(value: str) -> float:
     """

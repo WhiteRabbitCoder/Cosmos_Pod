@@ -115,22 +115,25 @@ def even_number_list():
                 print(color("Número no válido. Intenta de nuevo.", "red"))
     print(color(f"Números pares ingresados: {even_numbers}", "green"))
 
-while True:
-    print("\n\nNivel 4 - Listas y Colecciones")
-    print("1. Lista de frutas (Agregar, eliminar, buscar y eliminar duplicados)")
-    print("2. Promedio de una lista de números")
-    print("3. Números pares de una lista")
-    print("0. Salir")
-    choice = input("Selecciona una opción: ")
-    match choice:
-        case "1":
-            fruit_list()
-        case "2":
-            number_list_average()
-        case "3":
-            even_number_list()
-        case "0":
-            print(color("Saliendo del programa. ¡Hasta luego!", "yellow"))
-            break
-        case _:
-            print(color("Opción no válida. Intenta de nuevo.", "red"))
+def level_four_menu():
+    while True:
+        print("\n\nNivel 4 - Listas y Colecciones")
+        print("1. Lista de frutas (Agregar, eliminar, buscar y eliminar duplicados)")
+        print("2. Promedio de una lista de números")
+        print("3. Números pares de una lista")
+        print("0. Salir")
+        choice = input("Selecciona una opción: ")
+        match choice:
+            case "1":
+                fruit_list()
+            case "2":
+                number_list_average()
+            case "3":
+                even_number_list()
+            case "0":
+                print(color("Saliendo del programa. ¡Hasta luego!", "yellow"))
+                break
+            case _:
+                print(color("Opción no válida. Intenta de nuevo.", "red"))
+
+level_four_menu()

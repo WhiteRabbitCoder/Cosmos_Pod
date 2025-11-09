@@ -70,7 +70,7 @@ def basic_calculator():
             print("3. Multiplicación (*)")
             print("4. División (/)")
             print("5. Salir")
-            operation = input("Selecciona una opción: ")
+            operation = int(input("Selecciona una opción: "))
             while not( 0<operation<5):
                 print(color("Opción no válida. Intenta de nuevo.", "red"))
                 operation = input("Selecciona una opción: ")
@@ -79,7 +79,7 @@ def basic_calculator():
                 return
             if not num1: num1 = float(input("Ingresa el primer número: "))
             if not num2: num2 = float(input("Ingresa el segundo número: "))
-            match operation:
+            match str(operation):
                 case "1":
                     total = num1 + num2
                     print(color(f"La suma de {num1} y {num2} es {total}.", "green"))
@@ -97,6 +97,7 @@ def basic_calculator():
                         print(color(f"La división de {num1} entre {num2} es {total}.", "green"))
         except ValueError:
             print(color("Número no válido. Intenta de nuevo.", "red"))
+            num1, num2 = None, None
 
 def grade_classifier():
     grade = None
@@ -117,10 +118,11 @@ def grade_classifier():
             print(color("Nota no válida. Intenta de nuevo.", "red"))
 
 def three_number_comparator():
+    print("\n\nIngresa tres números para comparar.")
     nums = []
     while len(nums) < 3:
         try:
-            num = float(input(f"\n\nIngresa el número {len(nums)+1}: "))
+            num = float(input(f"Ingresa el número {len(nums)+1}: "))
             nums.append(num)
         except ValueError:
             print(color("Número no válido. Intenta de nuevo.", "red"))
@@ -130,32 +132,34 @@ def three_number_comparator():
     print(color(f"El número menor es {menor}.", "yellow"))
 
 
+def level_two_menu():
+    while True:
+        print("\n\nNivel 2 - Condicionales (Decisiones)")
+        print("1. Mayor de edad")
+        print("2. Número positivo, negativo o cero")
+        print("3. Par o impar")
+        print("4. Calculadora básica con +, -, *, /")
+        print("5. Clasificador de notas (Excelente, Aprobado, Reprobado)")
+        print("6. Comparador de tres números: mayor y menor")
+        print("0. Salir")
+        choice = input("Selecciona una opción: ")
+        match choice:
+            case "1":
+                age_check()
+            case "2":
+                zero_play()
+            case "3":
+                even_odd()
+            case "4":
+                basic_calculator()
+            case "5":
+                grade_classifier()
+            case "6":
+                three_number_comparator()
+            case "0":
+                print(color("Saliendo del programa. ¡Hasta luego!", "yellow"))
+                break
+            case _:
+                print(color("Opción no válida. Intenta de nuevo.", "red"))
 
-while True:
-    print("\n\nNivel 2 - Condicionales (Decisiones)")
-    print("7. Mayor de edad")
-    print("8. Número positivo, negativo o cero")
-    print("9. Par o impar")
-    print("10. Calculadora básica con +, -, *, /")
-    print("11. Clasificador de notas (Excelente, Aprobado, Reprobado)")
-    print("12. Comparador de tres números: mayor y menor")
-    print("0. Salir")
-    choice = input("Selecciona una opción: ")
-    match choice:
-        case "7":
-            age_check()
-        case "8":
-            zero_play()
-        case "9":
-            even_odd()
-        case "10":
-            basic_calculator()
-        case "11":
-            grade_classifier()
-        case "12":
-            three_number_comparator()
-        case "0":
-            print(color("Saliendo del programa. ¡Hasta luego!", "yellow"))
-            break
-        case _:
-            print(color("Opción no válida. Intenta de nuevo.", "red"))
+level_two_menu()

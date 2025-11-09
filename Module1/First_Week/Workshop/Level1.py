@@ -12,7 +12,7 @@ Objetivo: Practicar tipos de datos, entrada y salida, concatenación y operacion
 from sqlalchemy import except_
 
 import Module1.Utils.Decorators
-from Cosmos_Pod.Module1.Utils.Validator import is_positive_int
+from Cosmos_Pod.Module1.Utils.Validator import is_positive_int, is_positive_int_str
 from Cosmos_Pod.Module1.Utils.Validator import is_valid_name
 
 color = Module1.Utils.Decorators.color
@@ -23,10 +23,10 @@ def hello_user():
     while not is_valid_name(name):
         print(color("Nombre no válido. Intenta de nuevo.", "red"))
         name = input("¿Cuál es tu nombre? ")
-    age = int(input("¿Cuántos años tienes? "))
-    while not is_positive_int(age):
+    age = input("¿Cuántos años tienes? ")
+    while not is_positive_int_str(age) or int(age) > 120:
         print(color("Edad no válida. Intenta de nuevo.", "red"))
-        age = int(input("¿Cuántos años tienes? "))
+        age = input("¿Cuántos años tienes? ")
     print(color(f"Hola {name}, tienes {age} años.", "green"))
 
 
@@ -72,7 +72,7 @@ def show_variable_types():
     var_float = 10.5
     var_str = "Hola"
     var_bool = True
-    print(color(f"El tipo de {var_int} es {type(var_int)}.", "green"))
+    print(color(f"\n\nEl tipo de {var_int} es {type(var_int)}.", "green"))
     print(color(f"El tipo de {var_float} es {type(var_float)}.", "Yellow"))
     print(color(f"El tipo de '{var_str}' es {type(var_str)}.", "blue"))
     print(color(f"El tipo de {var_bool} es {type(var_bool)}.", "magenta"))
@@ -88,24 +88,34 @@ def future_age():
     except ValueError:
         print(color("Edad no válida. Intenta de nuevo.", "red"))
 
-while True:
-    print("\n\nNivel 1 - Fundamentos y Variables")
-    print("1. Hola usuario")
-    print("2. Suma de dos números")
-    print("3. Área del triángulo")
-    print("4. Conversor de grados Celsius a Fahrenheit")
-    print("5. Tipo de dato")
-    print("6. Edad futura")
-    print("0. Salir")
-    choice = input("Selecciona una opción: ")
-    match choice:
-        case "1": hello_user()
-        case "2": sum_two_numbers()
-        case "3": triangle_area()
-        case "4": celsius_to_fahrenheit()
-        case "5": show_variable_types()
-        case "6": future_age()
-        case "0":
-            print("Saliendo...")
-            break
-        case _: print("Opción no válida.")
+def level_one_menu():
+    while True:
+        print("\n\nNivel 1 - Fundamentos y Variables")
+        print("1. Hola usuario")
+        print("2. Suma de dos números")
+        print("3. Área del triángulo")
+        print("4. Conversor de grados Celsius a Fahrenheit")
+        print("5. Tipo de dato")
+        print("6. Edad futura")
+        print("0. Salir")
+        choice = input("Selecciona una opción: ")
+        match choice:
+            case "1":
+                hello_user()
+            case "2":
+                sum_two_numbers()
+            case "3":
+                triangle_area()
+            case "4":
+                celsius_to_fahrenheit()
+            case "5":
+                show_variable_types()
+            case "6":
+                future_age()
+            case "0":
+                print("Saliendo...")
+                break
+            case _:
+                print("Opción no válida.")
+
+level_one_menu()

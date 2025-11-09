@@ -20,7 +20,7 @@ def count_one_to_ten():
         print(color(str(i), "cyan"))
 
 def sum_one_to_n():
-    n = 0
+    n = None
     while n is None:
         try:
             n = int(input("\n\nIngresa un número entero positivo n: "))
@@ -34,7 +34,7 @@ def sum_one_to_n():
             print(color("Número no válido. Intenta de nuevo.", "red"))
 
 def multiplication_table():
-    n = 0
+    n = None
     while n is None:
         try:
             n = int(input("\n\nIngresa un número entero para ver su tabla de multiplicar: "))
@@ -49,7 +49,7 @@ def multiplication_table():
             print(color("Número no válido. Intenta de nuevo.", "red"))
 
 def countdown():
-    n = 0
+    n = None
     while n is None:
         try:
             n = int(input("\n\nIngresa un número entero positivo para iniciar el conteo regresivo: "))
@@ -60,6 +60,7 @@ def countdown():
                     n -= 1
                     time.sleep(1)
                 print(color("¡Despegue!", "magenta"))
+                time.sleep(1)
             else:
                 print(color("Número no válido. Intenta de nuevo.", "red"))
                 n = None
@@ -82,7 +83,9 @@ def guess_the_number():
     while guess != secret_number:
         try:
             guess = int(input(f"Adivina el número entre {Min} y {Max}: "))
-            if guess < secret_number:
+            if guess > Max or guess < Min:
+                print(color("El número está fuera del rango. Intenta de nuevo.", "red"))
+            elif guess < secret_number:
                 print(color("Demasiado bajo. Intenta de nuevo.", "yellow"))
             elif guess > secret_number:
                 print(color("Demasiado alto. Intenta de nuevo.", "yellow"))
@@ -104,31 +107,34 @@ def sum_until_zero():
             print(color("Número no válido. Intenta de nuevo.", "red"))
     print(color(f"La suma total es {total}.", "green"))
 
-while True:
-    print("\n\nNivel 3 - Bucles y Repetición")
-    print("1. Contar del 1 al 10")
-    print("2. Sumatoria del 1 al n")
-    print("3. Tabla de multiplicar")
-    print("4. Contador regresivo con while")
-    print("5. Adivina el número")
-    print("6. Sumar hasta que el usuario escriba 0")
-    print("7. Salir")
-    choice = input("Selecciona una opción: ")
-    match choice:
-        case "1":
-            count_one_to_ten()
-        case "2":
-            sum_one_to_n()
-        case "3":
-            multiplication_table()
-        case "4":
-            countdown()
-        case "5":
-            guess_the_number()
-        case "6":
-            sum_until_zero()
-        case "7":
-            print(color("Saliendo del programa. ¡Hasta luego!", "yellow"))
-            break
-        case _:
-            print(color("Opción no válida. Intenta de nuevo.", "red"))
+def level_three_menu():
+    while True:
+        print("\n\nNivel 3 - Bucles y Repetición")
+        print("1. Contar del 1 al 10")
+        print("2. Sumatoria del 1 al n")
+        print("3. Tabla de multiplicar")
+        print("4. Contador regresivo con while")
+        print("5. Adivina el número")
+        print("6. Sumar hasta que el usuario escriba 0")
+        print("0. Salir")
+        choice = input("Selecciona una opción: ")
+        match choice:
+            case "1":
+                count_one_to_ten()
+            case "2":
+                sum_one_to_n()
+            case "3":
+                multiplication_table()
+            case "4":
+                countdown()
+            case "5":
+                guess_the_number()
+            case "6":
+                sum_until_zero()
+            case "0":
+                print(color("Saliendo del programa. ¡Hasta luego!", "yellow"))
+                break
+            case _:
+                print(color("Opción no válida. Intenta de nuevo.", "red"))
+
+level_three_menu()

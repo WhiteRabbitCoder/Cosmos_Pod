@@ -139,9 +139,14 @@ def student_management():
         print("2. Mostrar estudiantes")
         print("3. Buscar estudiante")
         print("4. Eliminar estudiante")
-        print("5. Salir")
+        print("5. Guardar cambios en archivo CSV.")
+        print("6. Cargar estudiantes desde archivo CSV.")
+        print("0. Salir")
         choice = input("Seleccione una opción: ")
         match choice:
+            case "0":
+                print(color("Saliendo del sistema de gestión de estudiantes. ¡Hasta luego!", "cyan"))
+                break
             case "1":
                 name = input("Ingrese el nombre del estudiante: ")
                 while not is_valid_name(name):
@@ -173,8 +178,32 @@ def student_management():
                 students = [s for s in students if s["name"].lower() != delete_name.lower()]
                 print(color(f"Estudiante '{delete_name}' eliminado si existía.", "green"))
             case "5":
-                print(color("Saliendo del sistema de gestión de estudiantes. ¡Hasta luego!", "cyan"))
-                break
+                if students:
+                    import csv
+                    filename = input("Ingrese el nombre del archivo CSV para guardar (por ejemplo, estudiantes.csv): ")
+                    try:
+                        with open(filename, mode='w', newline='') as file:
+                            writer = csv.DictWriter(file, fieldnames=["name", "age"])
+                            writer.writeheader()
+                            for student in students:
+                                writer.writerow(student)
+                        print(color(f"Estudiantes guardados en '{filename}'.", "green"))
+                    except Exception as e:
+                        print(color(f"Error al guardar el archivo: {e}", "red"))
+                else:
+                    print(color("No hay estudiantes para guardar.", "yellow"))
+            case "6":
+                import csv
+                filename = input("Ingrese el nombre del archivo CSV para cargar (por ejemplo, estudiantes.csv): ")
+                try:
+                    with open(filename, mode='r') as file:
+                        reader = csv.DictReader(file)
+                        students = [{"name": row["name"], "age": int(row["age"])} for row in reader]
+                    print(color(f"Estudiantes cargados desde '{filename}'.", "green"))
+                except FileNotFoundError:
+                    print(color(f"Archivo '{filename}' no encontrado.", "red"))
+                except Exception as e:
+                    print(color(f"Error al cargar el archivo: {e}", "red"))
             case _:
                 print(color("Opción no válida. Intenta de nuevo.", "red"))
 
@@ -272,31 +301,34 @@ def contact_agenda():
             case _:
                 print(color("Opción no válida. Intenta de nuevo.", "red"))
 
-while True:
-    print("\nSeleccione una actividad para realizar:")
-    print("1. Sistema de calificaciones")
-    print("2. Carrito de compras")
-    print("3. Cajero automático")
-    print("4. Gestión de estudiantes")
-    print("5. Calculadora avanzada")
-    print("6. Agenda de contactos")
-    print("7. Salir")
-    activity = input("Ingrese el número de la actividad: ")
-    match activity:
-        case "1":
-            grade_system()
-        case "2":
-            shopping_cart()
-        case "3":
-            atm_simulator()
-        case "4":
-            student_management()
-        case "5":
-            advanced_calculator()
-        case "6":
-            contact_agenda()
-        case "7":
-            print(color("Saliendo del programa. ¡Hasta luego!", "cyan"))
-            break
-        case _:
-            print(color("Opción no válida. Intenta de nuevo.", "red"))
+def level_five_menu():
+    while True:
+        print("\nSeleccione una actividad para realizar:")
+        print("1. Sistema de calificaciones")
+        print("2. Carrito de compras")
+        print("3. Cajero automático")
+        print("4. Gestión de estudiantes (Mini bases de datos usando CSV)")
+        print("5. Calculadora avanzada")
+        print("6. Agenda de contactos")
+        print("7. Salir")
+        activity = input("Ingrese el número de la actividad: ")
+        match activity:
+            case "1":
+                grade_system()
+            case "2":
+                shopping_cart()
+            case "3":
+                atm_simulator()
+            case "4":
+                student_management()
+            case "5":
+                advanced_calculator()
+            case "6":
+                contact_agenda()
+            case "7":
+                print(color("Saliendo del programa. ¡Hasta luego!", "cyan"))
+                break
+            case _:
+                print(color("Opción no válida. Intenta de nuevo.", "red"))
+
+level_five_menu()
