@@ -1,6 +1,20 @@
+"""
+Inventory Management System
+This module allows users to add, view, modify, and delete products in an inventory.
+Each product has a name, price, and quantity.
+
+To-Do:
+- Implement modify product functionality.
+- Implement general statistics functionality.
+- Implement data export/import functionality.
+- Improve user interface.
+- Add persistent storage for products.
+- Manage error handling and edge cases in enter product function.
+"""
+
 import os
 import platform
-import Validator as Validator
+from Cosmos_Pod.Module1.Utils import Validator
 
 products = {}
 os.environ.setdefault("TERM", "xterm-256color")
@@ -21,6 +35,7 @@ def search_product(name):
 
 
 def clear_console():
+    print("\n" * 100)
     os.system("cls" if platform.system() == "Windows" else "clear")
 
 def enter_product():
@@ -33,9 +48,9 @@ def enter_product():
 
             # Quantity
             while True:
-                q_raw = input("\nEnter product quantity (positive integer): ").strip()
+                quantity_input = input("\nEnter product quantity (positive integer): ").strip()
                 try:
-                    quantity = int(q_raw)
+                    quantity = int(quantity_input)
                     if quantity <= 0:
                         raise ValueError
                     break
@@ -57,7 +72,7 @@ def enter_product():
             view_products()
 
             opt = input("\nAdd another product? (y/n): ").strip().lower()
-            while (opt == "y" or opt == "n") is False:
+            while not (opt == "y" or opt == "n"):
                 opt = input("Invalid option. Add another product? (y/n): ").strip().lower()
             if opt == "y":
                 continue
@@ -68,7 +83,7 @@ def enter_product():
             break
 
 def view_products():
-    clear_console
+    clear_console()
     if not products:
         print(open_text + "No products registered." + close_text)
     else:
@@ -105,7 +120,7 @@ def main_menu():
 
             menu = int(input("Please enter the desired option (0-6): ").strip())
         except ValueError:
-            print(open_text + "Invalid input. Enter a number between 1 and 6." + close_text)
+            print(open_text + "Invalid input. Enter a number between 0 and 6." + close_text)
             continue
         except KeyboardInterrupt:
             print(close_text + "Exiting.")
