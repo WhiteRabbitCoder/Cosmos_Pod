@@ -28,11 +28,3 @@ costoTotal = precioConvertido * cantidadConvertida
 
 # Mostramos el resultado
 print(f"Producto: {nombre} | Precio Unitario: {precio} | Cantidad: {cantidad} | Total: {costoTotal}")
-
-# ------------------------------------------------------------------------------------
-# COMENTARIO GENERAL:
-# Este programa pide al usuario el nombre, el precio y la cantidad de un producto.
-# Verifica que el precio y la cantidad sean valores numéricos usando un ciclo while.
-# Luego convierte esos valores a números (float e int), calcula el costo total
-# multiplicando el precio por la cantidad, y finalmente muestra el resultado en pantalla.
-# ------------------------------------------------------------------------------------
