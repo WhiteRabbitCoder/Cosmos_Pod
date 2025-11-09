@@ -8,7 +8,7 @@ while True:
     for p, precio in productos.items():
         print(f"- {p}: ${precio}")
 
-    eleccion = input("\n¿Qué producto quieres agregar? (o escribe 'salir' para terminar): ").lower()
+    eleccion = input("\n¿Qué producto quieres agregar? (o escribe 'acabe' para hacer el total de la compra: ").lower()
 
     if eleccion == "salir":
         break
