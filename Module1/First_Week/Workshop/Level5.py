@@ -200,7 +200,6 @@ def advanced_calculator():
         "3": multiply,
         "4": divide
     }
-
     while True:
         print("\nOperaciones disponibles:")
         print("1. Suma (+)")
