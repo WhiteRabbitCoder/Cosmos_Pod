@@ -1,74 +1,74 @@
 
 def Pacientes_constantes():
     return {
-        1: {
-            "nombre": "Carlos Pérez",
+        "1": {
+            "nombre": "CARLOS PÉREZ",
             "edad": 45,
-            "genero": "Masculino",
-            "diagnostico": "Hipertensión",
-            "historial": ["Consulta general", "Control presión arterial"]
+            "genero": "MASCULINO",
+            "diagnostico": "HIPERTENSIÓN",
+            "historial": ["CONSULTA GENERAL", "CONTROL PRESIÓN ARTERIAL"]
         },
-        2: {
-            "nombre": "María Gómez",
+        "2": {
+            "nombre": "MARÍA GÓMEZ",
             "edad": 33,
-            "genero": "Femenino",
-            "diagnostico": "Asma",
-            "historial": ["Consulta respiratoria", "Tratamiento con inhalador"]
+            "genero": "FEMENINO",
+            "diagnostico": "ASMA",
+            "historial": ["CONSULTA RESPIRATORIA", "TRATAMIENTO CON INHALADOR"]
         },
-        3: {
-            "nombre": "Julián Rodríguez",
+        "3": {
+            "nombre": "JULIÁN RODRÍGUEZ",
             "edad": 52,
-            "genero": "Masculino",
-            "diagnostico": "Diabetes tipo 2",
-            "historial": ["Control de glucosa", "Revisión nutricional"]
+            "genero": "MASCULINO",
+            "diagnostico": "DIABETES TIPO 2",
+            "historial": ["CONTROL DE GLUCOSA", "REVISIÓN NUTRICIONAL"]
         },
-        4: {
-            "nombre": "Laura Torres",
+        "4": {
+            "nombre": "LAURA TORRES",
             "edad": 29,
-            "genero": "Femenino",
-            "diagnostico": "Anemia ferropénica",
-            "historial": ["Análisis de sangre", "Suplementación con hierro"]
+            "genero": "FEMENINO",
+            "diagnostico": "ANEMIA FERROPÉNICA",
+            "historial": ["ANÁLISIS DE SANGRE", "SUPLEMENTACIÓN CON HIERRO"]
         },
-        5: {
-            "nombre": "Andrés Mejía",
+        "5": {
+            "nombre": "ANDRÉS MEJÍA",
             "edad": 61,
-            "genero": "Masculino",
-            "diagnostico": "Artritis reumatoide",
-            "historial": ["Terapia física", "Medicamento antiinflamatorio"]
+            "genero": "MASCULINO",
+            "diagnostico": "ARTRITIS REUMATOIDE",
+            "historial": ["TERAPIA FÍSICA", "MEDICAMENTO ANTIINFLAMATORIO"]
         },
-        6: {
-            "nombre": "Camila Restrepo",
+        "6": {
+            "nombre": "CAMILA RESTREPO",
             "edad": 24,
-            "genero": "Femenino",
-            "diagnostico": "Migraña crónica",
-            "historial": ["Evaluación neurológica", "Tratamiento preventivo"]
+            "genero": "FEMENINO",
+            "diagnostico": "MIGRAÑA CRÓNICA",
+            "historial": ["EVALUACIÓN NEUROLÓGICA", "TRATAMIENTO PREVENTIVO"]
         },
-        7: {
-            "nombre": "Ricardo López",
+        "7": {
+            "nombre": "RICARDO LÓPEZ",
             "edad": 38,
-            "genero": "Masculino",
-            "diagnostico": "Gastritis",
-            "historial": ["Consulta gastroenterología", "Tratamiento con omeprazol"]
+            "genero": "MASCULINO",
+            "diagnostico": "GASTRITIS",
+            "historial": ["CONSULTA GASTROENTEROLOGÍA", "TRATAMIENTO CON OMEPRAZOL"]
         },
-        8: {
-            "nombre": "Valentina Ríos",
+        "8": {
+            "nombre": "VALENTINA RÍOS",
             "edad": 41,
-            "genero": "Femenino",
-            "diagnostico": "Hipotiroidismo",
-            "historial": ["Control hormonal", "Terapia con levotiroxina"]
+            "genero": "FEMENINO",
+            "diagnostico": "HIPOTIROIDISMO",
+            "historial": ["CONTROL HORMONAL", "TERAPIA CON LEVOTIROXINA"]
         },
-        9: {
-            "nombre": "Sebastián Castaño",
+        "9": {
+            "nombre": "SEBASTIÁN CASTAÑO",
             "edad": 36,
-            "genero": "Masculino",
-            "diagnostico": "Ansiedad generalizada",
-            "historial": ["Terapia psicológica", "Tratamiento con ansiolíticos"]
+            "genero": "MASCULINO",
+            "diagnostico": "ANSIEDAD GENERALIZADA",
+            "historial": ["TERAPIA PSICOLÓGICA", "TRATAMIENTO CON ANSIOLÍTICOS"]
         },
-        10: {
-            "nombre": "Natalia Vélez",
+        "10": {
+            "nombre": "NATALIA VÉLEZ",
             "edad": 50,
-            "genero": "Femenino",
-            "diagnostico": "Colesterol alto",
-            "historial": ["Chequeo médico", "Plan alimenticio saludable"]
+            "genero": "FEMENINO",
+            "diagnostico": "COLESTEROL ALTO",
+            "historial": ["CHEQUEO MÉDICO", "PLAN ALIMENTICIO SALUDABLE"]
         }
     }
