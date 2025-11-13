@@ -10,21 +10,16 @@ def buscar_pacientes():
     Muestra una lista de todos los que coinciden.
     """
     consulta = input("\nIngrese el ID, nombre o diagnóstico a buscar: ").strip().upper()
-
     if not consulta:
         print("La consulta está vacía.")
         return
-
     resultados = []
     # Itera sobre el diccionario principal. 'pid' es la clave (ID), 'data' es el diccionario anidado.
     for pid, data in pacientes.items():
-        nombre_lower = data.get("nombre", "")
-        diag_lower = data.get("diagnostico", "")
-        id_lower = str(pid)
-
-        if consulta in nombre_lower or consulta in diag_lower or consulta in id_lower:
+        nombre = data.get("nombre", "")
+        diagnostico = data.get("diagnostico", "")
+        if consulta in nombre or consulta in diagnostico or consulta in pid:
             resultados.append((pid, data))
-
     if not resultados:
         print("No se encontraron pacientes que coincidan con la búsqueda.")
     else:
