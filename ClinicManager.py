@@ -38,7 +38,37 @@ def obtener_paciente_por_id(id_paciente: str):
 
 
 def ingresar_pacientes():
-    print("Función 'ingresar_pacientes' no implementada.")
+
+    identificacion = input(" Por favor digite ID sin puntos ni comas => ")
+    if identificacion in pacientes :
+        print ("El paciente se encuentra registrado ")
+    else :
+        identificacion  not in  pacientes.keys()
+        print("-------------Paciente nuevo, por favor ingrese los siguientes datos------------------")
+        
+       # identificacion  not in  pacientes.keys()
+
+    nombre = input("Por favor digite nombre completo => ")
+    edad = -1 
+    while edad < 0 or edad > 120:
+        try:
+            edad =  int(input("Por favor digite edad (Entre 0 y 120)=> "))
+            if edad < 0 or edad > 120:
+                raise ValueError   
+        except ValueError:
+            print ("-------------ATENCION : Edad fuera de rango, por favor ingrese una edad valida-------------")
+
+    diagnostico = input("Por favor digite diagnostico => ")
+    historial = input(" Consultar historial de paciente ") 
+    # Manejar el historial como una lista no cmo un str
+    
+    pacientes[identificacion] = {
+        "nombre": nombre,
+        "edad": edad,
+        "diagnostico": diagnostico,
+        "historial": historial
+    }
+
 
 
 def mostrar_pacientes():
