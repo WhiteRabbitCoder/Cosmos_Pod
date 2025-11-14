@@ -64,12 +64,6 @@ def modificar_pacientes():
     # else:
     #
 
-
-def eliminar_pacientes():
-    print("Función 'eliminar_pacientes' no implementada.")
-from Pacientes_Constante import Pacientes_constantes
-pacientes = Pacientes_constantes()
-
 def eliminar_pacientes():
     print("\nBienvenido al apartado de eliminar pacientes")
 
@@ -91,8 +85,6 @@ def eliminar_pacientes():
 
     else:
         print("Error: No se encontro paciente con ese ID")   
-
-eliminar_pacientes()
 
 for id_paciente, datos in pacientes.items():
     print(f"ID: {id_paciente}  |   Nombre:   {datos['nombre']}  |  Diagnostico:  {datos['diagnostico']}")
