@@ -1,3 +1,5 @@
+from collections import Counter
+
 from Pacientes_Constante import Pacientes_constantes
 
 # Carga los datos iniciales de los pacientes
@@ -36,7 +38,7 @@ def ingresar_pacientes():
     print("Función 'ingresar_pacientes' no implementada.")
 
 
-def mostrar_pacientes():
+def mostrar_pacientes(list):
     """
     Muestra una lista de todos los pacientes registrados.
     """
@@ -72,6 +74,43 @@ def importar_pacientes():
     print("Función 'importar_pacientes' no implementada.")
 
 
+def reportes_generales():
+    opc = -1
+    while opc != 0:
+        try:
+            print("\n\nLos reportes disponibles son: ")
+            print("1. Pacientes mayores de 60 años. ")
+            print("2. Diagnosticos más frecuentes. ")
+            print("3. Cantidad total de pacientes registrados. ")
+            print("0. Volver al menú principal ")
+            opc = input("Ingrese la opción a la que desea ingresar: ")
+            match opc:
+                case "0":
+                    opc = 0
+                case "1":
+                    resultado = []
+                    for pid, data in pacientes.items():
+                        if data.get("edad") >= 60:
+                            resultado.append((pid, data))
+                    for pid, data in resultado:
+                        print(f"\nEl paciente {data.get('nombre')} tiene {data.get('diagnostico')}.")
+                case "2":
+                    diagnosticos = [data.get("diagnostico") for _,data in pacientes.items() if data.get("diagnostico")]
+                    if not diagnosticos:
+                        print("No hay diagnosticos registrados")
+                    else:
+                        conteo_diagnostico = Counter(diagnosticos).most_common(5)
+                        print("\n\nLos 5 diagnosticos más comunes son: ")
+                        for diagnostico, frecuencia in conteo_diagnostico:
+                            print(f"- {diagnostico}, con {frecuencia} diagnostico. ")
+                case "3":
+                    print(len(pacientes.keys()))
+                case _:
+                    print("\nLo lamento, ingrese una opción correcta. ")
+
+        except KeyboardInterrupt:
+            print("\n\nVolviendo al menú principal... ")
+
 def main_menu():
     print("\n\n¡Bienvenido a Clinic Manager de Riwi - By Cosmos!")
     while True:
@@ -83,8 +122,9 @@ def main_menu():
         print("5. Eliminar pacientes")
         print("6. Exportar datos de pacientes")
         print("7. Importar datos de pacientes")
+        print("8. Reportes generales")
         print("0. Salir")
-        menu = input("Por favor, ingrese la opción que desea (0-7): ").strip()
+        menu = input("Por favor, ingrese la opción que desea (0-8): ").strip()
 
         match menu:
             case "0":
@@ -104,6 +144,8 @@ def main_menu():
                 exportar_pacientes()
             case "7":
                 importar_pacientes()
+            case "8":
+                reportes_generales()
             case _:
                 print("Opción inválida, intente nuevamente.")
 
