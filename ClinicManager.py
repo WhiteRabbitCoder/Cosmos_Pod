@@ -54,15 +54,94 @@ def mostrar_pacientes():
 
 
 def modificar_pacientes():
-    print("Función 'modificar_pacientes' no implementada.")
-    # Ejemplo de uso de la función de búsqueda por ID:
-    pid = input("Ingrese el ID del paciente a modificar: ")
-    paciente = obtener_paciente_por_id(pid)
-    if paciente:
-        print(f"Modificando a: {paciente.get('nombre')}")
-    #     # ...lógica de modificación...
-    # else:
-    #
+
+    def modificar_edad():
+        ID = input("Ingrese el ID del paciente: ")
+        if ID not in pacientes:
+            print("ID no encontrado.\n")
+            return
+
+        print("Edad actual:", pacientes[ID]["edad"])
+        nueva_edad = input("Ingrese la nueva edad: ")
+
+        confirmar = input(f"¿Confirma cambiar la edad a {nueva_edad}? (s/n): ").lower()
+        if confirmar == "s":
+            pacientes[ID]["edad"] = nueva_edad
+            print("Edad actualizada.")
+        else:
+            print("Cambio cancelado.")
+
+        print("Edad final:", pacientes[ID]["edad"], "\n")
+
+    def modificar_diag():
+        ID = input("Ingrese el ID del paciente: ")
+        if ID not in pacientes:
+            print("ID no encontrado.\n")
+            return
+
+        print("Diagnóstico actual:", pacientes[ID]["diagnostico"])
+        nuevo_diag = input("Ingrese el nuevo diagnóstico: ")
+
+        confirmar = input(f"¿Confirma cambiar el diagnóstico a '{nuevo_diag}'? (s/n): ").lower()
+        if confirmar == "s":
+            pacientes[ID]["diagnostico"] = nuevo_diag
+            print("Diagnóstico actualizado.")
+        else:
+            print("Cambio cancelado.")
+
+        print("Diagnóstico final:", pacientes[ID]["diagnostico"], "\n")
+
+    def agregar_evento():
+        ID = input("Ingrese el ID del paciente: ")
+        if ID not in pacientes:
+            print("ID no encontrado.\n")
+            return
+
+        print("Historial actual:")
+        for evento in pacientes[ID]["historial"]:
+            print("-", evento)
+
+        nuevo_evento = input("Nuevo evento: ")
+
+        confirmar = input("¿Agregar este evento? (s/n): ").lower()
+        if confirmar == "s":
+            pacientes[ID]["historial"].append(nuevo_evento)
+            print("Evento agregado.")
+        else:
+            print("Cambio cancelado.")
+
+        print("Historial final:", pacientes[ID]["historial"], "\n")
+
+    def menu():
+        while True:
+            print("\n MENÚ DE MODIFICACIÓN ")
+            print("1. Modificar edad")
+            print("2. Modificar diagnóstico")
+            print("3. Agregar evento al historial")
+            print("4. Ver datos del paciente")
+            print("5. Salir")
+
+            opcion = input("Opción: ")
+
+            if opcion == "1":
+                modificar_edad()
+            elif opcion == "2":
+                modificar_diag()
+            elif opcion == "3":
+                agregar_evento()
+            elif opcion == "4":
+                ID = input("ID del paciente: ")
+                if ID in pacientes:
+                    print("Datos:", pacientes[ID], "\n")
+                else:
+                    print("ID no encontrado.\n")
+            elif opcion == "5":
+                break
+            else:
+                print("Opción inválida.\n")
+
+    menu()
+
 
 def eliminar_pacientes():
     print("\nBienvenido al apartado de eliminar pacientes")
