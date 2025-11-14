@@ -56,61 +56,61 @@ def mostrar_pacientes():
 def modificar_pacientes():
 
     def modificar_edad():
-        ID = input("Ingrese el ID del paciente: ")
-        if ID not in pacientes:
+        id_paciente = input("Ingrese el ID del paciente: ")
+        if id_paciente not in pacientes:
             print("ID no encontrado.\n")
             return
 
-        print("Edad actual:", pacientes[ID]["edad"])
+        print("Edad actual:", pacientes[id_paciente]["edad"])
         nueva_edad = input("Ingrese la nueva edad: ")
 
         confirmar = input(f"¿Confirma cambiar la edad a {nueva_edad}? (s/n): ").lower()
         if confirmar == "s":
-            pacientes[ID]["edad"] = nueva_edad
+            pacientes[id_paciente]["edad"] = nueva_edad
             print("Edad actualizada.")
         else:
             print("Cambio cancelado.")
 
-        print("Edad final:", pacientes[ID]["edad"], "\n")
+        print("Edad final:", pacientes[id_paciente]["edad"], "\n")
 
     def modificar_diag():
-        ID = input("Ingrese el ID del paciente: ")
-        if ID not in pacientes:
+        id_paciente = input("Ingrese el ID del paciente: ")
+        if id_paciente not in pacientes:
             print("ID no encontrado.\n")
             return
 
-        print("Diagnóstico actual:", pacientes[ID]["diagnostico"])
+        print("Diagnóstico actual:", pacientes[id_paciente]["diagnostico"])
         nuevo_diag = input("Ingrese el nuevo diagnóstico: ")
 
         confirmar = input(f"¿Confirma cambiar el diagnóstico a '{nuevo_diag}'? (s/n): ").lower()
         if confirmar == "s":
-            pacientes[ID]["diagnostico"] = nuevo_diag
+            pacientes[id_paciente]["diagnostico"] = nuevo_diag
             print("Diagnóstico actualizado.")
         else:
             print("Cambio cancelado.")
 
-        print("Diagnóstico final:", pacientes[ID]["diagnostico"], "\n")
+        print("Diagnóstico final:", pacientes[id_paciente]["diagnostico"], "\n")
 
     def agregar_evento():
-        ID = input("Ingrese el ID del paciente: ")
-        if ID not in pacientes:
+        id_paciente = input("Ingrese el ID del paciente: ")
+        if id_paciente not in pacientes:
             print("ID no encontrado.\n")
             return
 
         print("Historial actual:")
-        for evento in pacientes[ID]["historial"]:
+        for evento in pacientes[id_paciente]["historial"]:
             print("-", evento)
 
         nuevo_evento = input("Nuevo evento: ")
 
         confirmar = input("¿Agregar este evento? (s/n): ").lower()
         if confirmar == "s":
-            pacientes[ID]["historial"].append(nuevo_evento)
+            pacientes[id_paciente]["historial"].append(nuevo_evento)
             print("Evento agregado.")
         else:
             print("Cambio cancelado.")
 
-        print("Historial final:", pacientes[ID]["historial"], "\n")
+        print("Historial final:", pacientes[id_paciente]["historial"], "\n")
 
     def menu():
         while True:
@@ -141,7 +141,6 @@ def modificar_pacientes():
                 print("Opción inválida.\n")
 
     menu()
-
 
 def eliminar_pacientes():
     print("\nBienvenido al apartado de eliminar pacientes")
