@@ -10,10 +10,9 @@ To-Do:
 - Manage error handling and edge cases in enter product function.
 """
 
-import os
-import platform
-
+import math
 from Cosmos_Pod.Module1.Utils import Validator
+
 
 
 open_text = " " * 30
@@ -27,14 +26,14 @@ class Product:
 
 
 products = {
-    "Apple": Product("Apple", 0.5, 100),
-    "Banana": Product("Banana", 0.3, 150),
+    "Apple" : Product("Apple", 0.5, 100),
+    "Banana" : Product("Banana", 0.3, 150),
     "Orange": Product("Orange", 0.7, 80),
 }
 
 
-def search_product(name):
-    return products.get(name, None)
+def search_product():
+    print("")
 
 
 def enter_product():
@@ -120,7 +119,7 @@ def gerenal_reports():
                 case 0:
                     opc = 0
                 case 1:
-                    print(f"Total number of products: {len(products.items())}"  )
+                    print(f"Total number of products: {len(products.items())}")
                     input("Press Enter to continue."  )
                 case 2:
                     total_value = sum(p.price * p.quantity for p in products.values())
@@ -140,10 +139,11 @@ def main_menu():
             print(open_text + "Welcome to the inventory calculator!"  )
             print(open_text + "1. Add a new product."  )
             print(open_text + "2. View added products."  )
-            print(open_text + "3. Modify a product. (Work in progress)"  )
-            print(open_text + "4. Delete a product."  )
-            print(open_text + "5. General statistics."  )
-            print(open_text + "6. Data. (Work in progress)"  )
+            print(open_text + "3. Search for a product."  )
+            print(open_text + "4. Modify a product. (Work in progress)"  )
+            print(open_text + "5. Delete a product."  )
+            print(open_text + "6. General statistics."  )
+            print(open_text + "7. Data. "  )
             print(open_text + "0. Exit"  )
 
             menu = int(input("Please enter the desired option (0-6): ").strip())
@@ -162,12 +162,14 @@ def main_menu():
             case 2:
                 view_products()
             case 3:
-                print(open_text + "Modify functionality not implemented yet."  )
+                search_product()
             case 4:
-                remove_product()
+                print(open_text + "Modify functionality not implemented yet.")
             case 5:
-                gerenal_reports()
+                remove_product()
             case 6:
+                gerenal_reports()
+            case 7: 
                 print(open_text + "Data functionality not implemented yet."  )
             case _:
                 print(open_text + "Invalid option. Try again."  )
